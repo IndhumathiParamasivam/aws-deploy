@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-ghcr
+  labels:
+    app: hello-world-ghcr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world-ghcr
+  template:
+    metadata:
+      labels:
+        app: hello-world-ghcr
+    spec:
+      containers:
+      - name: hello-world-ghcr
+        image: ghcr.io/indhumathiparamasivam/docker-ssh-ec2:main
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: regcred
