@@ -1,7 +1,12 @@
 name: test job
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+        version:
+          description: 'Updated version'
+          required: true
+          default: 'v'
+          type: string
 jobs:
   test:
      runs-on: [ ubuntu-latest]
@@ -10,7 +15,7 @@ jobs:
         run: |
          echo ${{ github.run_number }}
          var="v${{ github.run_number }}"
-         var1="${var:1}"  
+         var1="{${{ inputs.version }}:1}"  
          new=$((28-1))
          echo $new
          blue=$(($var1-1))
