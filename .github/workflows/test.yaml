@@ -15,7 +15,7 @@ jobs:
         run: |
          echo ${{ github.run_number }}
          var="v${{ github.run_number }}"
-         var1="{${{ inputs.version }}:1}"  
+         var1="${{ inputs.version:1}}"  
          new=$((28-1))
          echo $new
          blue=$(($var1-1))
