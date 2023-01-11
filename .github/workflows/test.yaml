@@ -9,5 +9,7 @@ jobs:
       - name: test1
         run: |
          echo ${{ github.run_number }}
-         blue= $(( ${{github.run_number }}-1))
+         new=$((28-1))
+         echo $new
+         blue=$((${{github.run_number }}-1))
          echo "hhh-$blue"
