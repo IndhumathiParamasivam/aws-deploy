@@ -1,0 +1,12 @@
+name: test job
+on:
+  push:
+    branches: [ master]
+jobs:
+   test:
+     steps:
+      - name: test1
+        run: |
+         echo ${{ github.run_number }}
+         blue= `expr ${{ github.run_number }} - 1`
+         echo "hhh-$blue"
